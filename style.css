@@ -1,14 +1,32 @@
-:root{--paper:#F1EFEA;--card:#FAF9F6;--ink:#1C1F24;--soft:#555A63;--accent:#2B4E85;--rule:#DAD7CF}
-@media (prefers-color-scheme:dark){:root{--paper:#141619;--card:#1E2125;--ink:#ECEDEF;--soft:#A9AEB6;--accent:#9DBAEB;--rule:#33373D}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
-main{max-width:720px;margin:0 auto;padding:32px 20px 64px}
-h1,h2{font-family:"New York",ui-serif,Georgia,serif;line-height:1.25}
-h1{font-size:34px;margin:12px 0 4px}h2{font-size:22px;margin-top:36px}
-a{color:var(--accent)}
-.lead{color:var(--soft);font-size:19px}
-header{display:flex;align-items:center;gap:14px}
-header img{width:64px;height:64px;border-radius:14px}
-nav{margin:24px 0;display:flex;gap:18px;flex-wrap:wrap;font-weight:600}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:18px 20px;margin:14px 0}
-footer{color:var(--soft);font-size:14px;margin-top:48px}
+/* Quartets: the site is printed like the app's concert programme. System fonts only (no web
+   font requests, so a visit sends nothing to a third party). */
+:root {
+  --paper: #f4efe4; --insert: #fbf8f1; --print: #1c1915; --faded: #5c554a;
+  --house: #7a1f2e; --gilt: #b4914a; --hairline: #dcd2c0;
+  --display: Didot, "Bodoni 72", "Bodoni MT", "Libre Bodoni", Georgia, serif;
+  --text: "New York", "Iowan Old Style", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #15120f; --insert: #201c18; --print: #efe8da; --faded: #b0a696; --house: #e79ca7; --gilt: #c9a55e; --hairline: #3a332c; }
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { margin: 0; color: var(--print); font: 18px/1.6 var(--text); }
+.page { max-width: 720px; margin: 24px auto; padding: 40px 32px 48px; border: 1.5px solid var(--gilt); outline: 0.5px solid var(--gilt); outline-offset: -8px; }
+@media (max-width: 760px) { .page { margin: 16px; padding: 28px 20px 36px; } }
+.label { font: 600 13px/1.4 var(--display); letter-spacing: .18em; text-transform: uppercase; color: var(--faded); }
+h1 { font: 400 clamp(44px, 9vw, 72px)/1.05 var(--display); margin: 8px 0 0; text-align: center; }
+h2 { font: 700 24px/1.25 var(--display); margin: 36px 0 8px; }
+.rule { width: 160px; margin: 14px auto; border: 0; border-top: 2px solid var(--gilt); border-bottom: 0.5px solid var(--gilt); height: 3px; }
+.center { text-align: center; }
+.note { font-style: italic; color: var(--faded); }
+a { color: var(--house); }
+.programme { list-style: none; padding: 0; margin: 24px 0; }
+.programme li { display: grid; grid-template-columns: 44px 1fr; gap: 0 8px; margin: 14px 0; }
+.programme .num { font: 700 21px/1.4 var(--display); color: var(--house); }
+.programme strong { font: 700 21px/1.4 var(--display); }
+.programme span { display: block; font-style: italic; color: var(--faded); }
+.icon { display: block; width: 112px; height: 112px; margin: 0 auto 12px; border-radius: 24px; }
+.store { display: inline-block; margin-top: 8px; padding: 12px 22px; background: var(--house); color: var(--insert); text-decoration: none; letter-spacing: .12em; text-transform: uppercase; font: 600 14px var(--display); }
+.insert { background: var(--insert); border: 1px solid var(--hairline); padding: 4px 20px 16px; margin: 24px 0; }
+footer { margin-top: 40px; font-size: 15px; color: var(--faded); text-align: center; }
