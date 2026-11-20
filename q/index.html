@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Quartet from a friend</title>
+<meta name="description" content="A friend wrote you a Quartet: sixteen words, four hidden groups. Open it in the Quartets app for iPhone.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../style.css"></head>
+<body><main class="page">
+<p class="label center">By hand, for you</p>
+<h1>A Quartet</h1>
+<hr class="rule">
+<p class="center note" id="lead">A friend wrote you a word puzzle: sixteen words, four hidden groups. Can you split it?</p>
+
+<p class="center" id="open" hidden><a class="store" id="openLink" href="quartets://q/">Open in Quartets</a></p>
+<p class="center note" id="missing" hidden>This link is missing its puzzle. Ask your friend to send it again.</p>
+
+<div class="insert">
+<h2>Don't have the app?</h2>
+<p>Quartets is a free word puzzle for iPhone. Install it, then come back to this page and tap Open in Quartets. The puzzle is inside the link, so nothing has been lost.</p>
+<p class="center"><a class="store" href="https://apps.apple.com/app/id6816981192">On the App Store</a></p>
+</div>
+
+<p class="note center">The puzzle travels inside the link after the # sign. This page doesn't send it anywhere, and doesn't use cookies or tracking.</p>
+
+<footer><a href="../">About Quartets</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms of Use</a></footer>
+</main>
+<script>
+// Reads the code from the fragment and points the button at the app. Only base64url
+// characters are accepted, so nothing else can end up in the link.
+(function () {
+  var code = decodeURIComponent((location.hash || "").slice(1));
+  var ok = /^[A-Za-z0-9_-]{8,1800}$/.test(code);
+  document.getElementById(ok ? "open" : "missing").hidden = false;
+  if (ok) document.getElementById("openLink").href = "quartets://q/" + code;
+})();
+</script>
+</body></html>
